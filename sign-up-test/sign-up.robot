@@ -62,7 +62,7 @@ ${EMPTY ERROR MESSAGE}    กรุณากรอกข้อมูลให้
 ${SIGNUP SUCCESS MESSAGE}    สมัครสมาชิกสำเร็จ
 ${INVALID EMAIL MESSAGE}    กรุณากรอกอีเมลให้ถูกต้อง
 ${INVALID REPASSWORD MESSAGE}    รหัสผ่านไม่ตรงกัน
-${INVALID PASSWORD MESSAGE}    รหัสผ่านต้องมีความยาว 8-16 ตัวอีกษร
+${INVALID PASSWORD MESSAGE}    รหัสผ่านต้องมีความยาว 8-16 ตัวอักษร
 ${INVALID SSN MESSAGE}    ชื่อและรหัสบัตรประชาชนไม่ตรงกัน
 ${INVALID PHONE MESSAGE}    หมายเลขโทรศัพท์ไม่ถูกต้อง
 ${DUPLICATE EMAIL MESSAGE}    ท่านมีบัญชีอยู่แล้ว
