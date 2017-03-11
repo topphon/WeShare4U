@@ -31,7 +31,7 @@ ${BTN SIGNUP SAVE}    signup-save
 # MESSAGE
 ${EMPTY ERROR MESSAGE}    กรุณาป้อนอีเมลและรหัสผ่านให้ครบถ้วน
 ${INVALID INPUT MESSAGE}    อีเมลหรือรหัสผ่านไม่ถูกต้อง
-${INVALID INPUT MESSAGE}    รหัสผ่านไม่ถูกต้อง
+${INVALID PASSWORD MESSAGE}    รหัสผ่านไม่ถูกต้อง
 
 *** Testcase ***
 # SIGNIN TC001
