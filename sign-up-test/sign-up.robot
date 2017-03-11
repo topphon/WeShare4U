@@ -9,7 +9,7 @@ ${DELAY}    0
 ${SLEEP TIME}    10
 
 # VALID VARIABLE INPUT
-${VALID SSN}    1410400278230
+${VALID SSN}    #HIDE
 ${VALID FNAME}    รัตนพล
 ${VALID LNAME}    ชัยแสน
 ${ADDRESS}    123 ม.16 ต.ในเมือง อ.เมือง จ.ขอนแก่น 40002
@@ -21,7 +21,7 @@ ${QUESTION VALUE}    1
 ${VALID ANSWER}    บ้านของฉัน
 
 # INVALID VARIABLE INPUT
-${INVALID SSN}    1410400278233
+${INVALID SSN}    1234567899876
 ${INVALID FNAME}    สมชัย
 ${INVALID LNAME}    ใจดี
 ${INVALID EMAIL}    somchai@gmail.com
@@ -36,8 +36,8 @@ ${INVALID REPASSWORD}    aA@12345cssc
 ${INVALID ANSWER}    บ้านของคุณ
 
 #DUPLICATE VARIABLE
-${DUPLICATE EMAIL}      # Wait Data
-${DUPLICATE SSN}        # Wait Data
+${DUPLICATE EMAIL}      #HIDE
+${DUPLICATE SSN}        #HIDE
 
 # HTML LOCATION NAME
 ${LOCATION EMAIL}    email
