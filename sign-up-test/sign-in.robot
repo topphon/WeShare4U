@@ -78,3 +78,4 @@ Invalid PASSWORD
     Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
+    Close Browser
