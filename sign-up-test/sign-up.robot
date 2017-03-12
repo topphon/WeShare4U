@@ -40,22 +40,23 @@ ${DUPLICATE EMAIL}      #HIDE
 ${DUPLICATE SSN}        #HIDE
 
 # HTML LOCATION NAME
-${LOCATION EMAIL}    email
-${LOCATION PASSWORD}    password
-${LOCATION REPASSWORD}    repassword
-${LOCATION SSN}    ssn
-${LOCATION FNAME}    fname
-${LOCATION LNAME}    lname
-${LOCATION PHONE}    phone
-${LOCATION ADDRESS}    address
-${LOCATION QUESTION}    question
-${LOCATION ANSWER}    answer
+${LOCATION EMAIL}    name=email
+${LOCATION PASSWORD}    name=password
+${LOCATION REPASSWORD}    name=repassword
+${LOCATION SSN}    name=ssn
+${LOCATION FNAME}    name=name=fname
+${LOCATION LNAME}    name=lname
+${LOCATION PHONE}    name=phone
+${LOCATION ADDRESS}    name=address
+${LOCATION QUESTION}    name=question
+${LOCATION ANSWER}    name=answer
 
 # HTML BUTTON NAME
-${BTN SIGNIN}    signin
-${BTN SIGNUP}    signup
-${BTN SIGNIN SAVE}    signin-save
-${BTN SIGNUP SAVE}    signup-save
+${BTN SIGNIN}    name=signin
+${BTN SIGNUP}    name=signup
+${BTN SIGNIN SAVE}    name=signin-save
+${BTN SIGNUP SAVE}    name=signup-save
+${CHK ACCEPT TERMS}    name=accept-terms
 
 # MESSAGE
 ${EMPTY ERROR MESSAGE}    กรุณากรอกข้อมูลให้ครบถ้วน
@@ -67,6 +68,7 @@ ${INVALID SSN MESSAGE}    ชื่อและรหัสบัตรประ
 ${INVALID PHONE MESSAGE}    หมายเลขโทรศัพท์ไม่ถูกต้อง
 ${DUPLICATE EMAIL MESSAGE}    ท่านมีบัญชีอยู่แล้ว
 ${DUPLICATE SSN MESSAGE}    ท่านมีบัญชีอยู่แล้ว
+${UNSELECT CHECKBOX MESSAGE}    ท่านไม่ยอมรับเงื่อนไขในการสมัครสมาชิก
 
 
 *** Testcase ***
@@ -96,6 +98,7 @@ Empty Email Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -113,6 +116,7 @@ Empty Password Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -130,6 +134,7 @@ Empty Re-Password Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -147,6 +152,7 @@ Empty SSN Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -164,6 +170,7 @@ Empty FNAME Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -181,6 +188,7 @@ Empty LNAME Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -198,6 +206,7 @@ Empty PHONE Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -215,6 +224,7 @@ Empty ADDRESS Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -232,6 +242,7 @@ Empty Select Question Input
     Select From List By Value    ${LOCATION QUESTION}    0
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -249,6 +260,7 @@ Empty ANSWER Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${EMPTY}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -266,6 +278,7 @@ Invalid EMAIL
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID EMAIL MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -283,6 +296,7 @@ Invalid Re-Password
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID REPASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -300,6 +314,7 @@ Invalid Password Less Than 8 digit C1
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -317,6 +332,7 @@ Invalid Password more Than 16 digit C2
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -334,6 +350,7 @@ Invalid Password Lowercase C3
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -351,6 +368,7 @@ Invalid Password Uppercase C4
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -368,6 +386,7 @@ Invalid Password Special Character C5
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -385,6 +404,7 @@ Invalid Password Number C6
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -402,6 +422,7 @@ Invalid SSN Not Match Wait Name
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID SSN MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -419,6 +440,7 @@ Invalid Name Not Match SSN Name
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID SSN MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -436,6 +458,7 @@ Invalid Phone
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${INVALID PHONE MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -454,6 +477,7 @@ Duplicate EMAIL
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${DUPLICATE EMAIL MESSAGE}
     Set Selenium Speed    ${DELAY}
@@ -471,11 +495,30 @@ Duplicate SSN
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${DUPLICATE SSN MESSAGE}
     Set Selenium Speed    ${DELAY}
 
 # SIGNUP TC026
+Valid Input Unselect Checkbox
+    Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
+    Input Text    ${LOCATION PASSWORD}    ${VALID PASSWORD}
+    Input Text    ${LOCATION REPASSWORD}    ${VALID REPASSWORD}
+    Input Text    ${LOCATION SSN}    ${VALID SSN}
+    Input Text    ${LOCATION FNAME}    ${VALID FNAME}
+    Input Text    ${LOCATION LNAME}    ${VALID LNAME}
+    Input Text    ${LOCATION PHONE}    ${VALID PHONE}
+    Input Text    ${LOCATION ADDRESS}    ${ADDRESS}
+    Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
+    Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
+    Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Unselect Checkbox    ${CHK ACCEPT TERMS}
+    Click Button    ${BTN SIGNUP SAVE}
+    Wait Until Page Contains    ${UNSELECT CHECKBOX MESSAGE}
+    Set Selenium Speed    ${DELAY}
+
+# SIGNUP TC027
 Valid Input
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${VALID PASSWORD}
@@ -488,6 +531,7 @@ Valid Input
     Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
     Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Select Checkbox    ${CHK ACCEPT TERMS}
     Click Button    ${BTN SIGNUP SAVE}
     Wait Until Page Contains    ${SIGNUP SUCCESS MESSAGE}
     Set Selenium Speed    ${DELAY}

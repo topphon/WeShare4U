@@ -67,7 +67,7 @@ $(window).on('load', function(){
             <img class="logo-img" style="box-shadow:inset 0px 20px 20px 0px rgba(204,255,255,0.9);" src="<?=base_url()?>assets/image/weSharedLogo.png">
           </a>
         </li>
-        <li style="float: right; padding-right: 7%;"><a class="hvr-shutter-in-horizontal-custom cd-signin" href="#0">เข้าสู่ระบบ</a></li>
+        <li style="float: right; padding-right: 7%;"><a class="hvr-shutter-in-horizontal-custom cd-signin" name="signin" href="#0">เข้าสู่ระบบ</a></li>
       </ul>
     </nav>
   </header>
@@ -109,7 +109,7 @@ function welcome() {
   <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
     <ul class="cd-switcher">
       <li><a href="#0">เข้าสู่ระบบ</a></li>
-      <li><a href="#0">สร้างบัญชีใหม่</a></li>
+      <li><a href="#0" name="signup">สร้างบัญชีใหม่</a></li>
     </ul>
 
     <div id="cd-login" style="border-width:1px;border-style:dashed; border-color:#afccff; border-bottom-right-radius:25px; border-bottom-left-radius:25px;"> <!-- log in form -->
@@ -120,20 +120,20 @@ function welcome() {
 
         <div class="cd-email fieldset">
             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="อีเมล">
+            <input class="full-width has-padding has-border" id="signin-email" name="signin-email" type="email" placeholder="อีเมล">
         </div>
 
         <div class="cd-password fieldset">
             <i class="fa fa-key" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="รหัสผ่าน">
+            <input class="full-width has-padding has-border" id="signin-password" name="signin-password" type="text"  placeholder="รหัสผ่าน">
         </div>
 
         <p class="fieldset" style="text-align:right;">
-          <input type="checkbox" id="remember-me" checked> จดจำฉัน
+          <input type="checkbox" id="remember-me" name="remember-me" checked> จดจำฉัน
         </p>
 
         <p class="fieldset">
-          <button type="submit" value="Submit">เข้าสู่ระบบ</button>
+          <button type="submit" value="Submit" name="signin-save">เข้าสู่ระบบ</button>
         </p>
       </form>
 
@@ -146,12 +146,12 @@ function welcome() {
 
         <div class="cd-email fieldset">
             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="อีเมล">
+            <input class="full-width has-padding has-border" id="signin-email" name="email"type="email" placeholder="อีเมล">
         </div>
 
         <div class="cd-password fieldset">
             <i class="fa fa-key" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="รหัสผ่าน">
+            <input class="full-width has-padding has-border" id="signin-password" name="password" type="text"  placeholder="รหัสผ่าน">
         </div>
 
         <div class="cd-password fieldset">
@@ -186,7 +186,7 @@ function welcome() {
 
         <div class="fieldset">
           <select class="full-width has-padding has-border" name="question" >
-            <option disabled selected> => กรุณาเลือกคำถามของคุณ..</option>
+            <option disabled selected value="0"> => กรุณาเลือกคำถามของคุณ..</option>
             <option value="1">งานในฝันของคุณคืออะไร</option>
             <option value="2">สัตว์เลี้ยงตัวแรกของคุณชื่ออะไร</option>
             <option value="3">สถานที่ที่คุณอยากไปเที่ยวมากที่สุดคือประเทศอะไร</option>
@@ -204,12 +204,12 @@ function welcome() {
 
 
         <p class="fieldset" style="text-align:right;">
-          <input type="checkbox" id="accept-terms">
+          <input type="checkbox" id="accept-terms" name="accept-terms">
         ฉันยอมรับ<a href="#0">ข้อตกลง..</a>
         </p>
 
         <p class="fieldset">
-          <button type="submit" value="Submit">สร้างบัญชีใหม่</button>
+          <button type="submit" value="Submit" name="signup-save">สร้างบัญชีใหม่</button>
         </p>
       </form>
 

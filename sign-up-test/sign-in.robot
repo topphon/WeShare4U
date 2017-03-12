@@ -19,19 +19,21 @@ ${INVALID PASSWORD}    aA@12345cssc
 
 
 # HTML LOCATION NAME
-${LOCATION EMAIL}    email
-${LOCATION PASSWORD}    password
+${LOCATION EMAIL}    name=signin-email
+${LOCATION PASSWORD}    name=signin-password
 
 # HTML BUTTON NAME
-${BTN SIGNIN}    signin
-${BTN SIGNUP}    signup
-${BTN SIGNIN SAVE}    signin-save
-${BTN SIGNUP SAVE}    signup-save
+${BTN SIGNIN}    name=signin
+${BTN SIGNUP}    name=signup
+${BTN SIGNIN SAVE}    name=signin-save
+${BTN SIGNUP SAVE}    name=signup-save
+${CHK REMEMBER ME}    name=remember-me
 
 # MESSAGE
 ${EMPTY ERROR MESSAGE}    กรุณาป้อนอีเมลและรหัสผ่านให้ครบถ้วน
 ${INVALID INPUT MESSAGE}    อีเมลหรือรหัสผ่านไม่ถูกต้อง
 ${INVALID PASSWORD MESSAGE}    รหัสผ่านไม่ถูกต้อง
+${VALID INPUT MESSAGE}    ยินดีต้อนรับ
 
 *** Testcase ***
 # SIGNIN TC001
@@ -77,5 +79,12 @@ Invalid PASSWORD
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
+    Set Selenium Speed    ${DELAY}
+
+Valid Input
+    Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
+    Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
+    Select Checkbox     ${CHK REMEMBER ME}
+    Wait Until Page Contains    ${VALID INPUT MESSAGE}
     Set Selenium Speed    ${DELAY}
     Close Browser
