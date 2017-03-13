@@ -3,7 +3,7 @@ Library    Selenium2Library
 
 *** Variable ***
 # SETUP VARIABLE INPUT
-${WEB URL}    http://localhost:7272/index.html
+${WEB URL}    http://10.199.66.227/SoftEn2017/group5/
 ${BROWSER}    Chrome
 ${DELAY}    0
 ${SLEEP TIME}    10
@@ -13,21 +13,20 @@ ${VALID EMAIL}    tratta01@gmail.com
 ${VALID PASSWORD}    aA@12345
 
 # INVALID VARIABLE INPUT
-
 ${INVALID EMAIL}    somchai@gmail.com
 ${INVALID PASSWORD}    aA@12345cssc
-
 
 # HTML LOCATION NAME
 ${LOCATION EMAIL}    name=signin-email
 ${LOCATION PASSWORD}    name=signin-password
 
 # HTML BUTTON NAME
-${BTN SIGNIN}    name=signin
-${BTN SIGNUP}    name=signup
-${BTN SIGNIN SAVE}    name=signin-save
-${BTN SIGNUP SAVE}    name=signup-save
-${CHK REMEMBER ME}    name=remember-me
+${LOCATION SIGNIN MAIN}    name=signin-main
+${LOCATION SIGNIN SUBMAIN}    name=signin-submain
+${LOCATION SIGNUP}    name=signup
+${LOCATION SIGNIN SUBMIT}    name=signin-submit
+${LOCATION SIGNUP SUBMIT}    name=signup-submit
+${LOCATION REMEMBER ME}    name=remember-me
 
 # MESSAGE
 ${EMPTY ERROR MESSAGE}    กรุณาป้อนอีเมลและรหัสผ่านให้ครบถ้วน
@@ -39,52 +38,55 @@ ${VALID INPUT MESSAGE}    ยินดีต้อนรับ
 # SIGNIN TC001
 Open Start Page
     Open Browser    ${WEB URL}    ${BROWSER}
-    Wait Until Page Contains    เริ่มตอนนี้ ,,
+    Location Should Be    ${WEB URL}
 
 # SIGNIN TC002
 Empty Input
-    Click Element    ${BTN SIGNIN}
-    Click Button    ${BTN SIGNIN SAVE}
+    Click Element    ${LOCATION SIGNIN}
+    Click Button    ${LOCATION SIGNIN SUBMIT}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
 
-
+# SIGNIN TC003
 Empty EMAIL Input
     Input Text    ${LOCATION EMAIL}    ${EMPTY}
     Input Text    ${LOCATION PASSWORD}    ${VALID PASSWORD}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
 
-
+# SIGNIN TC004
 Empty PASSWORD Input
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${EMPTY}
     Wait Until Page Contains    ${EMPTY ERROR MESSAGE}
     Set Selenium Speed    ${DELAY}
 
-
+# SIGNIN TC005
 Invalid Input
     Input Text    ${LOCATION EMAIL}    ${INVALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
     Wait Until Page Contains    ${INVALID INPUT MESSAGE}
     Set Selenium Speed    ${DELAY}
 
+# SIGNIN TC006
 Invalid EMAIL
     Input Text    ${LOCATION EMAIL}    ${INVALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${VALID PASSWORD}
     Wait Until Page Contains    ${INVALID INPUT MESSAGE}
     Set Selenium Speed    ${DELAY}
 
+# SIGNIN TC007
 Invalid PASSWORD
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
     Set Selenium Speed    ${DELAY}
 
+# SIGNIN TC008
 Valid Input
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
     Input Text    ${LOCATION PASSWORD}    ${INVALID PASSWORD}
-    Select Checkbox     ${CHK REMEMBER ME}
+    Select Checkbox     ${LOCATION REMEMBER ME}
     Wait Until Page Contains    ${VALID INPUT MESSAGE}
     Set Selenium Speed    ${DELAY}
     Close Browser
