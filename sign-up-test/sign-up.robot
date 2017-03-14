@@ -6,7 +6,7 @@ Library    Selenium2Library
 ${WEB URL}    http://10.199.66.227/SoftEn2017/group5/
 ${BROWSER}    Chrome
 ${DELAY}    0
-${SLEEP TIME}    10
+${SLEEP TIME}    0
 
 # VALID VARIABLE INPUT
 ${VALID SSN}    #HIDE
@@ -61,7 +61,7 @@ ${LOCATION ACCEPT TERMS}    name=accept
 
 # MESSAGE
 ${UNSELECT QUESTION ERROR MESSAGE}
-${UNSELECT CHECKBOX MESSAGE}    กรุณายอมรับข้อตกลง
+${UNSELECT CHECKBOX MESSAGE}
 ${PASSWORD ERROR MESSAGE}    รหัสผ่านไม่ตรงกัน !
 ${EMAIL ERROR MESSAGE}
 ${SSN ERROR MESSAGE}    เลขบัตรประชาชนไม่ถูกต้อง !
@@ -73,7 +73,7 @@ ${EMPTY ANSWER ERROR MESSAGE}
 ${INVALID EMAIL MESSAGE}
 ${INVALID PASSWORD MESSAGE}
 ${INVALID PHONE MESSAGE}
-${SIGNUP SUCCESS MESSAGE}    `เริ่มตอนนี้
+${SIGNUP SUCCESS MESSAGE}    เริ่มตอนนี้
 ${DUPLICATE EMAIL MESSAGE}
 ${DUPLICATE SSN MESSAGE}
 
@@ -83,14 +83,16 @@ ${DUPLICATE SSN MESSAGE}
 Open Start Page
     Open Browser    ${WEB URL}    ${BROWSER}
     Location Should Be    ${WEB URL}
-
+    Capture Page Screenshot    filename=000.png
+    Set Selenium Speed    ${DELAY}
 
 Empty Input
     Click Element    ${LOCATION SIGNIN MAIN}
     Click Element    ${LOCATION SIGNUP}
     Click Button    ${LOCATION SIGNUP SUBMIT}
+    Wait Until Page Contains    ${EMAIL ERROR MESSAGE}
+    Capture Page Screenshot    filename=001.png
     Location Should Be    ${WEB URL}#0
-    Set Selenium Speed    ${DELAY}
 
 Valid Input Unselect Question Input
     Input Text    ${LOCATION EMAIL}    ${VALID EMAIL}
@@ -107,7 +109,7 @@ Valid Input Unselect Question Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${UNSELECT QUESTION ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=002.png
 
 
 Valid Input Unselect Checkbox
@@ -125,7 +127,7 @@ Valid Input Unselect Checkbox
     Unselect Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${UNSELECT CHECKBOX MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=003.png
 
 
 Empty Email Input
@@ -144,7 +146,7 @@ Empty Email Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMAIL ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=004.png
 
 
 Empty Password Input
@@ -163,7 +165,7 @@ Empty Password Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${PASSWORD ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=005.png
 
 
 Empty Re-Password Input
@@ -182,7 +184,7 @@ Empty Re-Password Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${PASSWORD ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=006.png
 
 
 Empty SSN Input
@@ -201,7 +203,7 @@ Empty SSN Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${SSN ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=007.png
 
 
 Empty FNAME Input
@@ -220,7 +222,7 @@ Empty FNAME Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMPTY FNAME ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=008.png
 
 
 Empty LNAME Input
@@ -239,7 +241,7 @@ Empty LNAME Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMPTY LNAME ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=009.png
 
 
 Empty PHONE Input
@@ -258,7 +260,7 @@ Empty PHONE Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMPTY PHONE ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=010.png
 
 
 Empty ADDRESS Input
@@ -277,7 +279,7 @@ Empty ADDRESS Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMPTY ADDRESS ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=011.png
 
 
 Empty ANSWER Input
@@ -296,7 +298,7 @@ Empty ANSWER Input
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${EMPTY ANSWER ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=012.png
 
 
 Invalid EMAIL
@@ -315,7 +317,7 @@ Invalid EMAIL
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID EMAIL MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=013.png
 
 
 Invalid Re-Password
@@ -334,7 +336,7 @@ Invalid Re-Password
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${PASSWORD ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=014.png
 
 
 Invalid Password Less Than 8 digit C1
@@ -353,7 +355,7 @@ Invalid Password Less Than 8 digit C1
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=015.png
 
 
 Invalid Password more Than 16 digit C2
@@ -372,7 +374,7 @@ Invalid Password more Than 16 digit C2
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=016.png
 
 
 Invalid Password Lowercase C3
@@ -391,7 +393,7 @@ Invalid Password Lowercase C3
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=017.png
 
 
 Invalid Password Uppercase C4
@@ -410,7 +412,7 @@ Invalid Password Uppercase C4
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=018.png
 
 
 Invalid Password Special Character C5
@@ -429,7 +431,7 @@ Invalid Password Special Character C5
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=019.png
 
 
 Invalid Password Number C6
@@ -448,7 +450,7 @@ Invalid Password Number C6
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PASSWORD MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=020.png
 
 
 Invalid SSN
@@ -467,7 +469,7 @@ Invalid SSN
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${SSN ERROR MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=021.png
 
 
 Invalid Phone
@@ -486,7 +488,7 @@ Invalid Phone
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${INVALID PHONE MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=022.png
 
 
 Valid Input
@@ -501,11 +503,11 @@ Valid Input
     Select From List    ${LOCATION QUESTION}
     #Select From List By Value    ${LOCATION QUESTION}    ${QUESTION VALUE}
     Input Text    ${LOCATION ANSWER}    ${VALID ANSWER}
-    Sleep    ${SLEEP TIME}    # XXX input CAPTCHA manually here!
+    Sleep    30   # XXX input CAPTCHA manually here!
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${SIGNUP SUCCESS MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=023.png
 
 
 Duplicate EMAIL
@@ -527,7 +529,7 @@ Duplicate EMAIL
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${DUPLICATE EMAIL MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=024.png
 
 
 Duplicate SSN
@@ -546,5 +548,5 @@ Duplicate SSN
     Select Checkbox    ${LOCATION ACCEPT TERMS}
     Click Button    ${LOCATION SIGNUP SUBMIT}
     Wait Until Page Contains    ${DUPLICATE SSN MESSAGE}
-    Set Selenium Speed    ${DELAY}
+    Capture Page Screenshot    filename=025.png
     Close Browser
