@@ -1,0 +1,196 @@
+
+/* The snackbar */
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-image: linear-gradient(to right, #596164  0%, #868f96  100%);
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    -moz-border-radius: 50px;
+	  -webkit-border-radius: 50px;
+	  border-radius: 50px;
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+ fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/* end The snackbar */
+
+.fqa{
+margin-top:-25%;
+}
+
+/* Style all font awesome icons */
+.social {
+    padding: 20px;
+    font-size: 30px;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    -moz-border-radius: 50px;
+	  -webkit-border-radius: 50px;
+	  border-radius: 50px;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+.fa-facebook:hover {
+    transition: .5s;
+    color: #3B5998;
+    text-decoration: none;
+}
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-twitter:hover {
+    transition: .5s;
+    color: #55ACEE;
+    text-decoration: none;
+}
+/* end font awesome icons */
+
+
+/* Underline custom Left */
+.hvr-underline-custom-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-custom-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #57E9F2;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-custom-left:hover:before, .hvr-underline-custom-left:focus:before, .hvr-underline-custom-left:active:before {
+  right: 0;
+}
+/* end Underline custom Left */
+
+
+/* goButton */
+.goButton {
+  border-radius: 25px;
+  color: #000;
+  background: none;
+  border: 2px solid #000;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 50%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.goButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.goButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.goButton:hover span {
+  padding-right: 25px;
+}
+
+.goButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* end goButton */
+
+
+
+/* btn pack */
+.btn {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.success {
+  background-color: #4CAF50;
+  } /* Green */
+.success:hover {
+  background-color: #46a049;
+}
+.info {
+  background-color: #2196F3;
+  } /* Blue */
+.info:hover {
+  background: #0b7dda;
+}
+.warning {
+  background-color: #ff9800;
+  } /* Orange */
+.warning:hover {
+  background: #e68a00;
+}
+.danger {
+  background-color: #f44336;
+  } /* Red */
+.danger:hover {
+  background: #da190b;
+}
+.default {
+  background-color: #e7e7e7; color: black;
+  } /* Gray */
+.default:hover {
+  background: #ddd;
+}
+/* end btn pack */
