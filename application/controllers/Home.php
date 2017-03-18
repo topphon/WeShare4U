@@ -14,9 +14,15 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-		$ResultQuestion['question'] = $this->modelDAO->getQuestion();
-		$this->load->view('Home/index',$ResultQuestion);
+		$this->load->view('home/index');
 	}
+
+	public function signup()
+	{
+		$ResultQuestion['question'] = $this->modelDAO->getQuestion();
+		$this->load->view('home/signup',$ResultQuestion);
+	}
+
 
 	public function check_email($email)
 	{

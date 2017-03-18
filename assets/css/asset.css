@@ -17,6 +17,7 @@
     -moz-border-radius: 50px;
 	  -webkit-border-radius: 50px;
 	  border-radius: 50px;
+    z-index: 4;
 }
 #snackbar.show {
     visibility: visible;
@@ -50,6 +51,17 @@ margin-top:-25%;
     padding: 20px;
     font-size: 30px;
     width: 70px;
+    text-align: center;
+    text-decoration: none;
+    -moz-border-radius: 50px;
+	  -webkit-border-radius: 50px;
+	  border-radius: 50px;
+}
+.social-xs {
+    padding: 5px;
+    font-size: 15px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     text-decoration: none;
     -moz-border-radius: 50px;
@@ -153,13 +165,16 @@ margin-top:-25%;
 
 
 /* btn pack */
-.btn {
+.button {
+    background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 14px 28px;
+    padding: 15px 32px;
     text-align: center;
+    text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
 }
 

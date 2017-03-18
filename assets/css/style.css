@@ -3,33 +3,42 @@ html, body{
   height:100%;
   overflow-x: hidden;
 }
-body .container {
-  width: 95%;
+body .content {
+  width: 80%;
+  height: 0 auto;
+  background-color: #ECF4FF;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  border-color: 2px solid #afccff;
+  z-index: 1;
 }
 
-nav{
+header{
+  padding-top: 1%;
   position: fixed;
   top: 0 auto;
   background-color: #ECF4FF;
   width: 100%;
-  height: 9%;
+  height: 13%;
   padding-left: 7%;
   text-align:center;
-  border-bottom: .1px solid #666666;
-  -webkit-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+  border-bottom: 2px solid #57E9F2;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  z-index:2;
 }
-nav li{
+
+header li{
   display: inline-block;
   height: auto;
   float: left;
 }
-nav ul li.logo{
-  padding-right: 10%;
-  float: none;
+header ul li.logo{
+
 }
-nav ul li a{
+header ul li a{
   color: #595959;
   font-size: 16px;
   font-family: sans-serif;
@@ -38,23 +47,29 @@ nav ul li a{
   transition: .5s;
   text-decoration: none;
 }
-nav li a:hover{
+header li a:hover{
   color:#57E9F2;
   text-decoration: none;
 }
-nav li .cd-signin{
+header li .cd-signin{
+
   color:#595959;
   background: none;
   border-radius: 25px;
   border: 2px solid #57E9F2;
   padding-top: 5%;
   padding-bottom : 5%;
-  margin-top: 11%;
+  margin-top: 0%;
 }
-nav li .cd-signin:hover{
+header li .cd-signin:hover{
   background: #57E9F2;
   color: #ECF4FF;
   transition: .3s;
+}
+
+nav{
+  height: 20%;
+  width: 100%;
 }
 
 .container {
@@ -68,18 +83,33 @@ margin: 0 auto;
   text-align: center;
 }
 .logo-img{
-  margin-top: -31%;
+  margin-top: -30%;
   display:inline-block;
-  width:50px;
-  height:50px;
-  margin-left: 50%;
-  float: center;
+  width:100px;
+  height:100px;
   background-color: none;
-  border-radius:25px;
+  border-radius:50px;
   border-color: #000;
   border: 5px;
 }
 abbr{
     border-bottom:1px dotted #333;
     cursor:help;
+}
+
+.signup{
+  width: 50%;
+  height: 0 auto;
+  margin: 0 auto;
+}
+
+.footer{
+   width: 100%;
+   height: 90px;
+   background: #ECF4FF;
+   border-top: 2px solid #57E9F2;
+   position: relative;
+   z-index: 2;
+   text-align: center;
+   padding-top: 1%;
 }
