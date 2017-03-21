@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <meta charset="utf-8">
-<title>weShared</title>
+<title>weShared4U</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Mobile Specific Metas
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -35,48 +35,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>/assets/js/bootstrap.min.js"></script>
-<script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-
+<script src='https://www.google.com/recaptcha/api.js?hl=th&onload=onloadCallback&render=explicit' async defer></script>
+<script type="text/javascript">
+  var clientId1;
+  var clientId2;
+  var onloadCallback = function() {
+    clientId1 = grecaptcha.render('recaptcha1', {
+      'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+    });
+    clientId2 = grecaptcha.render(
+        document.getElementById('recaptcha2'), {
+    'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+    });
+  };
+</script>
 </head>
 <!-- loadFunction -->
 <body>
-
-  <!-- header -->
-    <header class='header-nav' id="header-nav">
-      <ul>
-        <li class="logo">
-          <a href="<?=base_url()?>/index.php/home" style="">
-            <img class="logo-img" style="box-shadow:inset 0px 20px 20px 0px #666666;" src="<?=base_url()?>assets/image/weSharedLogo.png">
-          </a>
-        </li>
-        <li><a class="hvr-underline-custom-left" href="">สถิติการบริจาค</a></li>
-        <li><a class="hvr-underline-custom-left" href="">คำถามที่พบบ่อย</a></li>
-        <li><a class="hvr-underline-custom-left" href="">เกี่ยวกับเรา</a></li>
-        <li style="float: right; padding-right:10%;">
-          <a class="hvr-shutter-in-horizontal-custom cd-signin" name="signin-main" href="#">เข้าสู่ระบบ</a>
-          <a style="margin-top:-10%; text-decoration: underline;" href="<?=base_url()?>/index.php/home/signup">สมัครสมาชิก</a>
-        </li>
-      </ul>
-      <nav>
-
-      </nav>
-    </header>
-
       <!-- container -->
       <div class="container content">
           <div class="row">
-            <div class="" style="margin-top:7%; margin-bottom:4%; border-bottom-width:2px; border-style:dashed; border-color:#afccff;border-top-right-radius:25px; border-top-left-radius:25px;">
+            <div class="" style="margin-top:13%; margin-bottom:4%; text-decoration:underline;">
               <h2>สมัครสมาชิก</h2>
             </div>
             <div class="signup" style="padding-bottom:5%;" >
-              <form action="index.php/Home/Register" method="post" class="cd-form register" id="register"
-              style="margin-top:3%;border-width:1px;border-style:dashed; border-color:#afccff;
-              border-bottom-right-radius:25px; border-bottom-left-radius:25px;">
+              <form action="<?=base_url()?>index.php/Home/Register" method="post" class="cd-form register" id="register"
+              style="margin-top:3%;border-width:1.5px;border-style:dashed; border-color:#afccff;
+              border-radius:25px;">
 
                 <div class="cd-email fieldset">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                     <input class="full-width has-padding has-border" onkeyup="clearEmailError()"
-                    title="กรุณาใส่อีเมลให้ถูกต้อง !"
                     id="email" name="email" type="email" placeholder="อีเมล" maxlength="60" autofocus required>
                     <div id="checkEmail" style="text-align:right;"></div>
                 </div>
@@ -85,8 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-key" aria-hidden="true"></i>
                     <input class="full-width has-padding has-border" id="confirmPassword"
                     name="confirm" type="password" placeholder="รหัสผ่าน" onBlur="checkPasswordMatch(); return false;"
-                    pattern="(?=.*\S)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\^$.|?%*+()]).{8,16}"
-                    maxlength="16" required title="ต้องมีตัวอักษรภาษาอังกฤษ ตัวเล็ก ตัวใหญ่ ตัวเลขและตัวอักษรพิเศษ อย่างละ 1 ตัว">
+                    maxlength="16" required>
                     <div style="text-align: right;" id="checkConfirm"></div>
                 </div>
 
@@ -94,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-key" aria-hidden="true"></i>
                   <input class="full-width has-padding has-border"  id="password" name="password" onChange="checkPasswordMatch(); return false;"
                   name='password' type="password" placeholder="ยืนยันรหัสผ่าน"
-                  pattern="(?=.*\S)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\^$.|?%*+()]).{8,16}" maxlength="16" required title="กรุณายืนยันรหัสผ่าน">
+                  maxlength="16" required>
                   <div style="text-align: right;" id="checkPass"></div>
                 </div>
 
@@ -108,23 +96,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="cd-name fieldset">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <input class="full-width has-padding has-border"
-                  name='fname' type="text"placeholder="ชื่อจริง" maxlength="30" id="fname" onkeyup="clearFnameError()"  pattern="[A-Za-z\S]+" required title="กรุณาใส่ชื่อจริงภาษาไทยหรือภาษาอังกฤษเท่านั้น">
+                  name='fname' type="text" placeholder="ชื่อจริง" maxlength="30" id="fname" onkeyup="clearFnameError()"  required>
                   <div id="checkFname" style="text-align:right;"></div>
                 </div>
 
                 <div class="cd-name fieldset">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <input class="full-width has-padding has-border"
-                  name='lname' type="text" placeholder="นามสกุล" maxlength="30" id="lname" onkeyup="clearLnameError()" pattern="[A-Za-z\S]+" required title="กรุณากรอกชื่อนามสกุลภาษาไทยหรือภาษาอังกฤษเท่านั้น">
-                  <span id="checkLname" style="text-align:right;"></span>
+                  name='lname' type="text" placeholder="นามสกุล" maxlength="30" id="lname" onkeyup="clearLnameError()"  required>
+                  <div id="checkLname" style="text-align:right;"></div>
                 </div>
 
                 <div class="cd-phone fieldset">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <input class="full-width has-padding has-border"
-                  name='phone' id="phone" type="text" placeholder="หมายเลขโทรศัพท์" maxlength="10" pattern="[0-9]{10}"
-                  onkeyup="clearPhoneError()" required title="กรุณากรอกเฉพาะตัวเลข 10 ตัวเท่านั้น">
-                  <span id="checkPhone" style="text-align:right;"></span>
+                  name='phone' id="phone" type="text" placeholder="หมายเลขโทรศัพท์" maxlength="10"
+                  onkeyup="clearPhoneError()" required>
+                  <div id="checkPhone" style="text-align:right;"></div>
                 </div>
 
                 <div class="cd-address fieldset">
@@ -154,9 +142,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div id="checkAnswer" style="text-align:right;"></div>
                 </div>
 
-                  <div class="g-recaptcha-response" style="padding-left:20%; padding-top:5%;" >
-                    <div class="g-recaptcha" id="g-recaptcha-response"  data-sitekey="6LdXqBgUAAAAAM0Qgyy071v1h1mzQopS38PlDBNd"></div>
-                    <div id="checkCaptcha" style="text-align:right;"></div>
+                  <div style="padding-left:17%; padding-top:2%;" >
+                    <div id="recaptcha1"></div>
                   </div>
 
                 <div class="fieldset" style="text-align:right; padding-top:5%;">
@@ -166,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <p class="fieldset">
-                  <button type="submit" value="submit" name="signup-submit" onclick="validPass(); checkAllRequire();">สร้างบัญชีใหม่</button>
+                  <button type="submit" class="btn-submit" value="submit" name="signup-submit" onclick="validPass(); checkAllRequire();">สร้างบัญชีใหม่</button>
                 </p>
               </form>
             </div>
@@ -175,19 +162,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <!-- end container -->
         <br>
-        <footer class="footer">
-          <div>
-            <a href="#"><i class="fa social-xs fa-facebook"></i></a>
-            <a href="#"><i class="fa social-xs fa-twitter"></i></a>
-          </div>
-          <div>
-            copyright &copy; <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script>
-            chimdolin Design , <strong style="color:#666666;">weShared4U.</strog>
-          </div>
-          <div>
-            Email : <a style="color:#666666;" href="mailto:weshared4u@gmail.com?Subject=สวัสดี%20weShared4U">weshared4u@gmail.com</a>
-          </div>
-        </footer>
 
 
         <!-- welcome toast -->
@@ -213,25 +187,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div style="padding-top:5%;">
                 <img class="img-responsive" style="margin: 0 auto; width:25%; text-align: center;" src="<?=base_url()?>/assets/image/weBox.png">
               </div>
-              <form action='#' method='post' class="cd-form">
+              <form action='<?=base_url()?>index.php/home/checkLogin' method='post' class="cd-form" id="login">
                 <div class="cd-email fieldset">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <input class="full-width has-padding has-border" id="signin-email"
+                    <input class="full-width has-padding has-border" name="signin-email" id="signin-email"
                     type="email"  placeholder="อีเมล" autofocus>
                 </div>
                 <div class="cd-password fieldset">
                     <i class="fa fa-key" aria-hidden="true"></i>
-                    <input class="full-width has-padding has-border" id="signin-password"
-                    type="text" placeholder="รหัสผ่าน">
+                    <input class="full-width has-padding has-border" name="signin-password" id="signin-password"
+                    type="password" placeholder="รหัสผ่าน">
                 </div>
-                <div class="fieldset" style="text-align:right;">
-                  <input type="checkbox" id="remember-me" name="remember-me" checked> จดจำฉัน
+                <div style="padding-left:4.5%; padding-top:2%;" >
+                  <div id="recaptcha2"></div>
                 </div>
-                <p class="fieldset">
-                  <button type="submit" class="cd-form no-touch " name="submit">เข้าสู่ระบบ</button>
-                </p>
+                <div class="fieldset">
+                  <button type="submit" class="btn-login"  value="submit" name="login-submit">เข้าสู่ระบบ</button>
+                </div>
+                <div class="forgetpass" style="margin:0 auto; text-align:right;">
+                  <a href="#">ลืมรหัสผ่าน ?</a>
+                </div>
               </form>
             </div>
+          </div>
+        </div>
             <!-- end login -->
 
 
@@ -260,12 +239,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- </div> cd-user-modal-container -->
 <!-- </div>  cd-user-modal -->
 
-
 <script>
 //checkCaptcha Varidate
 $("#register").submit(function(event) {
-   var recaptcha = $("#g-recaptcha-response").val();
-   if (recaptcha === "") {
+   var recaptcha1 = $("#g-recaptcha-response").val();
+   if (recaptcha1 === "") {
+      event.preventDefault();
+      alert("กรุณายืนยันว่าไม่ใช่โปรแกรมอัตโนมัติ");
+   }
+});
+
+//checkCaptcha Varidate
+$("#login").submit(function(event) {
+   var recaptcha2 = $("#g-recaptcha-response").val();
+   if (recaptcha2 === "") {
       event.preventDefault();
       alert("กรุณายืนยันว่าไม่ใช่โปรแกรมอัตโนมัติ");
    }
@@ -319,6 +306,9 @@ function checkPasswordMatch() {
     if (password != confirmPassword){
         $("#checkPass").html("<span style='color:#ff6666;'>รหัสผ่านไม่ตรงกัน !</span>");
         return false;
+      }else if (password == ''){
+        $("#checkPass").html("<span style='color:#ff6666;'>กรุณายืนยันรหัสผ่าน !</span>");
+        return false;
     }else{
       $("#checkPass").html("");
       return true;
@@ -339,14 +329,13 @@ $(document).ready(function () {
   }
 
 </script>
-
 <script>
 //check available email
 $('#email').blur(function(e){
          e.preventDefault();
          var email = $('#email').val();
          $.ajax({
-           url: '<?= base_url() ?>index.php/Home/email_validation',
+           url: '<?= base_url() ?>index.php/Home/emailValidation',
            data: {
              'email': email
            },
@@ -363,12 +352,34 @@ $('#email').blur(function(e){
       });
 </script>
 <script>
-//check available email
+//check confirmPassword Validation
+$('#confirmPassword').blur(function(e){
+         e.preventDefault();
+         var confirmPassword = $('#confirmPassword').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/confirmPasswordValidation',
+           data: {
+             'confirmPassword': confirmPassword
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkConfirm').html('');
+             }else{
+               $('#checkConfirm').html(data);
+               document.getElementById("confirmPassword").value = "";
+             }
+           }
+         });
+      });
+</script>
+<script>
+//check available Ssn
 $('#ssn').blur(function(e){
          e.preventDefault();
          var ssn = $('#ssn').val();
          $.ajax({
-           url: '<?= base_url() ?>index.php/Home/ssn_validation',
+           url: '<?= base_url() ?>index.php/Home/ssnValidation',
            data: {
              'ssn': ssn
            },
@@ -384,5 +395,144 @@ $('#ssn').blur(function(e){
          });
       });
 </script>
+<script>
+//check fname Validation
+$('#fname').blur(function(e){
+         e.preventDefault();
+         var fname = $('#fname').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/fnameValidation',
+           data: {
+             'fname': fname
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkFname').html('');
+             }else{
+               $('#checkFname').html(data);
+               document.getElementById("fname").value = "";
+             }
+           }
+         });
+      });
+</script>
+<script>
+//check lname Validation
+$('#lname').blur(function(e){
+         e.preventDefault();
+         var lname = $('#lname').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/lnameValidation',
+           data: {
+             'lname': lname
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkLname').html('');
+             }else{
+               $('#checkLname').html(data);
+               document.getElementById("lname").value = "";
+             }
+           }
+         });
+      });
+</script>
+<script>
+//check phone Validation
+$('#phone').blur(function(e){
+         e.preventDefault();
+         var phone = $('#phone').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/phoneValidation',
+           data: {
+             'phone': phone
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkPhone').html('');
+             }else{
+               $('#checkPhone').html(data);
+               document.getElementById("phone").value = "";
+             }
+           }
+         });
+      });
+</script>
+<script>
+//check address Validation
+$('#address').blur(function(e){
+         e.preventDefault();
+         var address = $('#address').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/addressValidation',
+           data: {
+             'address': address
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkAddress').html('');
+             }else{
+               $('#checkAddress').html(data);
+               document.getElementById("address").value = "";
+             }
+           }
+         });
+      });
+</script>
+<script>
+//check answer Validation
+$("#register").submit(function(event) {
+   var question = $("#question").val();
+   if (question === "") {
+      event.preventDefault();
+      alert("กรุณาเลือกคำถามในกรณีที่ลืมรหัสผ่าน");
+   }
+});
+
+$('#answer').blur(function(e){
+         e.preventDefault();
+         var answer = $('#answer').val();
+         $.ajax({
+           url: '<?= base_url() ?>index.php/Home/answerValidation',
+           data: {
+             'answer': answer
+           },
+           type: "post",
+           success: function(data){
+             if(data == 'true'){
+               $('#checkAnswer').html('');
+             }else{
+               $('#checkAnswer').html(data);
+               document.getElementById("answer").value = "";
+             }
+           }
+         });
+      });
+      </script>
+      <script>
+      //check login
+      $("#login").submit(function(event) {
+               var address = $('#address').val();
+               $.ajax({
+                 url: '<?= base_url() ?>index.php/Home/checkLogin',
+                 data: {
+                   'address': address
+                 },
+                 type: "post",
+                 success: function(data){
+                   if(data == 'true'){
+                     $('#checkAddress').html('');
+                   }else{
+                     $('#checkAddress').html(data);
+                     document.getElementById("address").value = "";
+                   }
+                 }
+               });
+            });
+      </script>
 </body>
 </html>

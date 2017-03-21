@@ -162,7 +162,44 @@ margin-top:-25%;
 }
 /* end goButton */
 
+.btn-submit {
+  background: none;
+  border-radius: 25px;
+  border: 2px solid #57E9F2;
+  padding:0 auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 
+.btn-submit:hover {
+  margin: 0 auto;
+  background-color: #57E9F2;
+  color: #ECF4FF;
+  transition: .3s;
+  width: 70%;
+}
+
+.btn-login {
+  background: none;
+  border-radius: 25px;
+  border: 2px solid #57E9F2;
+  padding:0 auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.btn-login:hover {
+  text-align: center;
+  margin-left: 15%;
+  background-color: #57E9F2;
+  color: #ECF4FF;
+  transition: .3s;
+  width: 70%;
+}
 
 /* btn pack */
 .button {

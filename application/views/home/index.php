@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <meta charset="utf-8">
-<title>weShared</title>
+<title>weShared4U</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Mobile Specific Metas
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -36,39 +36,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>/assets/js/bootstrap.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-
 </head>
 <!-- loadFunction -->
-<body onload="welcome()">
-
-<!-- header -->
-  <header class='header-nav' id="header-nav">
-    <ul>
-      <li class="logo">
-        <a href="<?=base_url()?>/index.php/home" style="">
-          <img class="logo-img" style="box-shadow:inset 0px 20px 20px 0px #666666;" src="<?=base_url()?>assets/image/weSharedLogo.png">
-        </a>
-      </li>
-      <li><a class="hvr-underline-custom-left" href="">สถิติการบริจาค</a></li>
-      <li><a class="hvr-underline-custom-left" href="">คำถามที่พบบ่อย</a></li>
-      <li><a class="hvr-underline-custom-left" href="">เกี่ยวกับเรา</a></li>
-      <li style="float: right; padding-right:10%;">
-        <a class="hvr-shutter-in-horizontal-custom cd-signin" name="signin-main" href="#">เข้าสู่ระบบ</a>
-        <a style="margin-top:-10%; text-decoration: underline;" href="<?=base_url()?>/index.php/home/signup">สมัครสมาชิก</a>
-      </li>
-    </ul>
-    <nav>
-
-    </nav>
-  </header>
-
+<body>
       <!-- container -->
-      <div class="container" style="height:100%;">
+      <div class="container" style="height:79%;">
           <div class="row">
                 <br>
-                <img class="img-responsive" style="width:15%; margin-top:5%; text-align: center;" src="<?=base_url()?>/assets/image/weBox.png">
+                <img class="img-responsive" style="width:15%; margin-top:11%; text-align: center;" src="<?=base_url()?>/assets/image/weBox.png">
                 <br>
-                <span style="padding-top:3%;">
+                <span style="padding-top:5%;">
                     <abbr title="Shared">แชร์</abbr> -
                     <abbr title="Gift">มอบให้</abbr> -
                     <abbr title="Recive">ได้รับ</abbr>
@@ -78,25 +55,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <a href="#"><i class="fa social fa-facebook"></i></a>
                   <a href="#"><i class="fa social fa-twitter"></i></a>
                 </div>
-                <div style="margin-top:3%;">
-                  <button class="goButton"><span>เริ่มตอนนี้</span></button>
-                </div>
           </div>
         </div>
 
-        <footer class="footer">
-          <div>
-            <a href="#"><i class="fa social-xs fa-facebook"></i></a>
-            <a href="#"><i class="fa social-xs fa-twitter"></i></a>
-          </div>
-          <div>
-            copyright &copy; <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script>
-            chimdolin Design , <strong style="color:#666666;">weShared4U.</strog>
-          </div>
-          <div>
-            Email : <a style="color:#666666;" href="mailto:weshared4u@gmail.com?Subject=สวัสดี%20weShared4U">weshared4u@gmail.com</a>
-          </div>
-        </footer>
 
 <!-- welcome toast -->
 <script>
@@ -121,25 +82,40 @@ function welcome() {
       <div style="padding-top:5%;">
         <img class="img-responsive" style="margin: 0 auto; width:25%; text-align: center;" src="<?=base_url()?>/assets/image/weBox.png">
       </div>
-      <form action='#' method='post' class="cd-form">
+      <form action='<?=base_url()?>index.php/home/checkLogin' method='post' class="cd-form" id="login">
         <div class="cd-email fieldset">
             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-email"
+            <input class="full-width has-padding has-border" name="signin-email" id="signin-email"
             type="email"  placeholder="อีเมล" autofocus>
         </div>
         <div class="cd-password fieldset">
             <i class="fa fa-key" aria-hidden="true"></i>
-            <input class="full-width has-padding has-border" id="signin-password"
-            type="text" placeholder="รหัสผ่าน">
+            <input class="full-width has-padding has-border" name="signin-password" id="signin-password"
+            type="password" placeholder="รหัสผ่าน">
         </div>
-        <p class="fieldset" style="text-align:right;">
-          <input type="checkbox" id="remember-me" name="remember-me" checked> จดจำฉัน
-        </p>
-        <p class="fieldset">
-          <button type="submit" class="cd-form no-touch " name="submit">เข้าสู่ระบบ</button>
-        </p>
+        <div class="g-recaptcha-response" style="margin:0 auto; padding-left:5%; padding-top:5%;" >
+          <div class="g-recaptcha" id="g-recaptcha-response"  data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        </div>
+        <div class="forgetpass" style="margin:0 auto; text-align:right;">
+          <a href="#">ลืมรหัสผ่าน ?</a>
+        </div>
+        <div class="fieldset">
+          <button type="submit" class="btn-login"  value="submit" name="login-submit">เข้าสู่ระบบ</button>
+        </div>
       </form>
     </div>
+  </div>
+</div>
     <!-- end login -->
+    <script>
+    //checkCaptcha Varidate
+    $("#login").submit(function(event) {
+       var recaptcha = $("#g-recaptcha-response").val();
+       if (recaptcha === "") {
+          event.preventDefault();
+          alert("กรุณายืนยันว่าไม่ใช่โปรแกรมอัตโนมัติ");
+       }
+    });
+    </script>
 </body>
 </html>

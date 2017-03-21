@@ -46,6 +46,18 @@
   -moz-box-shadow: 0px 0px 300px -10px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 300px -10px rgba(0,0,0,0.75);
 }
+
+.cd-user-modal .cd-user-modal-container div.forgetpass a{
+  text-decoration: none;
+  color:#666666;
+  font-size: 16px;
+  transition: .5s;
+}
+
+.cd-user-modal .cd-user-modal-container div.forgetpass a:hover{
+  text-decoration: underline;
+  color:#57E9F2;
+}
 .cd-user-modal-container .cd-switcher:after {
   content: "";
   display: table;
@@ -200,7 +212,7 @@
   outline: none;
 }
 
-.cd-form button[type=submit] {
+/*.cd-form button[type=submit] {
   background: none;
   border-radius: 25px;
   border: 2px solid #57E9F2;
@@ -217,7 +229,7 @@
   transition: .3s;
   width: 70%;
   margin-left: 15%;
-}
+}*/
 
 .cd-form .cd-error-message {
   display: inline-block;

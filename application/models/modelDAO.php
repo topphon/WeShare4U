@@ -27,12 +27,37 @@ class modelDAO extends CI_Model {
 
       }
 
-			public function is_ssn_available($ssn)
+	public function is_ssn_available($ssn)
 					{
 							 $this->db->where('ssn', $ssn);
 							 $query = $this->db->get("user");
 							 return $query->row_array();
-
 					}
+
+public function getLogin($email,$password)
+					{
+							 $this->db->where('email', $email);
+							 $this->db->where('password', $password);
+							 $query = $this->db->get("user");
+
+							 if($query->num_rows() == 1){
+									$sess_array = array();
+										foreach ($query->result() as $row)
+										{
+										$sess_array = $arrayName = array(
+											'fname' => $row->fname,
+											'lname' => $row->lname,
+											'email' => $row->email,
+											'activate' => $row->activate,
+											'state' => 'choose'
+										);
+									}
+										$this->session->set_userdata($sess_array);
+									return $query;
+							 }
+							 else {
+								 return null;
+							 }
+						}
 
 }
