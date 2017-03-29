@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170322 10:00:39.835" generator="Robot 3.0.2 (Python 2.7.11 on win32)">
+<suite source="D:\GoogleDrive\ComputerSync\322371 Software Engineering\project\github\WeShare4U\sign-up-test\signin\sign-in.robot" id="s1" name="Sign-In">
+<test id="s1-t1" name="[1] Open Start Page">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${WEB URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:40.515" level="INFO">Opening browser 'Chrome' to base url 'http://10.199.66.227/SoftEn2017/group5/'</msg>
+<status status="PASS" endtime="20170322 10:00:46.632" starttime="20170322 10:00:40.515"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-001.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:46.852" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-001.png"&gt;&lt;img src="sign-in-001.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:46.852" starttime="20170322 10:00:46.633"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WEB URL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:46.867" level="INFO">Current location is 'http://10.199.66.227/SoftEn2017/group5/'.</msg>
+<status status="PASS" endtime="20170322 10:00:46.867" starttime="20170322 10:00:46.852"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:46.867" starttime="20170322 10:00:46.867"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:46.867" critical="yes" starttime="20170322 10:00:40.499"></status>
+</test>
+<test id="s1-t2" name="[2] Empty Input">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN MAIN}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:46.867" level="INFO">Clicking element 'name=signin-main'.</msg>
+<status status="PASS" endtime="20170322 10:00:46.964" starttime="20170322 10:00:46.867"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:46.968" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:47.180" starttime="20170322 10:00:46.968"></status>
+</kw>
+<kw name="Alert Should Be Present" library="Selenium2Library">
+<doc>Verifies an alert is present and dismisses it.</doc>
+<arguments>
+<arg>text=${ALERT ROBOT}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:47.204" starttime="20170322 10:00:47.184"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${LOGIN ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:48.449" starttime="20170322 10:00:47.204"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-002.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:48.673" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-002.png"&gt;&lt;img src="sign-in-002.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:48.673" starttime="20170322 10:00:48.453"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:48.673" critical="yes" starttime="20170322 10:00:46.867"></status>
+</test>
+<test id="s1-t3" name="[3] Valid Input Unselect Chaptcha">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${VALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:48.689" level="INFO">Typing text 'tratta01@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:48.836" starttime="20170322 10:00:48.689"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${INVALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:48.838" level="INFO">Typing text 'aA+12345cssc' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:48.970" starttime="20170322 10:00:48.837"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:48.974" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:49.061" starttime="20170322 10:00:48.970"></status>
+</kw>
+<kw name="Alert Should Be Present" library="Selenium2Library">
+<doc>Verifies an alert is present and dismisses it.</doc>
+<arguments>
+<arg>text=${ALERT ROBOT}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:49.093" starttime="20170322 10:00:49.061"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-003.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:49.397" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-003.png"&gt;&lt;img src="sign-in-003.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:49.397" starttime="20170322 10:00:49.097"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:49.401" critical="yes" starttime="20170322 10:00:48.673"></status>
+</test>
+<test id="s1-t4" name="[4] Empty EMAIL Input">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:49.405" level="INFO">Typing text '' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:49.453" starttime="20170322 10:00:49.405"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:49.453" level="INFO">Typing text 'aA+12345' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:49.522" starttime="20170322 10:00:49.453"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION CAPTCHA}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:49.526" level="INFO">Clicking element 'g-recaptcha-response'.</msg>
+<status status="PASS" endtime="20170322 10:00:49.640" starttime="20170322 10:00:49.526"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SLEEP TIME}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:52.651" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170322 10:00:52.651" starttime="20170322 10:00:49.641"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:52.652" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:52.740" starttime="20170322 10:00:52.652"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${EMAIL ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:52.777" starttime="20170322 10:00:52.743"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-004.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:52.989" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-004.png"&gt;&lt;img src="sign-in-004.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:52.989" starttime="20170322 10:00:52.781"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:52.989" critical="yes" starttime="20170322 10:00:49.401"></status>
+</test>
+<test id="s1-t5" name="[5] Empty PASSWORD Input">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${VALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:52.989" level="INFO">Typing text 'tratta01@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:53.075" starttime="20170322 10:00:52.989"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.077" level="INFO">Typing text '' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:53.135" starttime="20170322 10:00:53.077"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.139" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:53.195" starttime="20170322 10:00:53.139"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${LOGIN ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:53.207" starttime="20170322 10:00:53.195"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-005.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.431" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-005.png"&gt;&lt;img src="sign-in-005.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:53.431" starttime="20170322 10:00:53.207"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:53.431" critical="yes" starttime="20170322 10:00:52.989"></status>
+</test>
+<test id="s1-t6" name="[6] Invalid Input">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${INVALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.439" level="INFO">Typing text 'somchai@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:53.519" starttime="20170322 10:00:53.435"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${INVALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.523" level="INFO">Typing text 'aA+12345cssc' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:53.591" starttime="20170322 10:00:53.523"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.591" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:53.672" starttime="20170322 10:00:53.591"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${LOGIN ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:53.683" starttime="20170322 10:00:53.673"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-006.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.896" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-006.png"&gt;&lt;img src="sign-in-006.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:53.896" starttime="20170322 10:00:53.683"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:53.896" critical="yes" starttime="20170322 10:00:53.435"></status>
+</test>
+<test id="s1-t7" name="[7] Invalid EMAIL">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${INVALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.904" level="INFO">Typing text 'somchai@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:53.983" starttime="20170322 10:00:53.904"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:53.983" level="INFO">Typing text 'aA+12345' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:54.047" starttime="20170322 10:00:53.983"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.047" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:54.111" starttime="20170322 10:00:54.047"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${LOGIN ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:54.127" starttime="20170322 10:00:54.115"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-007.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.380" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-007.png"&gt;&lt;img src="sign-in-007.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:54.380" starttime="20170322 10:00:54.127"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:54.384" critical="yes" starttime="20170322 10:00:53.900"></status>
+</test>
+<test id="s1-t8" name="[8] Invalid PASSWORD">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${VALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.388" level="INFO">Typing text 'tratta01@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:54.472" starttime="20170322 10:00:54.388"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${INVALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.475" level="INFO">Typing text 'aA+12345cssc' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:54.536" starttime="20170322 10:00:54.474"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.544" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:00:54.608" starttime="20170322 10:00:54.540"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${LOGIN ERROR MESSAGE}</arg>
+</arguments>
+<status status="PASS" endtime="20170322 10:00:54.620" starttime="20170322 10:00:54.612"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-008.png</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.852" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-008.png"&gt;&lt;img src="sign-in-008.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:00:54.852" starttime="20170322 10:00:54.620"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:00:54.852" critical="yes" starttime="20170322 10:00:54.388"></status>
+</test>
+<test id="s1-t9" name="[9] Valid Input">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${WEB URL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:54.860" level="INFO">Opening url 'http://10.199.66.227/SoftEn2017/group5/'</msg>
+<status status="PASS" endtime="20170322 10:00:56.671" starttime="20170322 10:00:54.860"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN MAIN}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:56.672" level="INFO">Clicking element 'name=signin-main'.</msg>
+<status status="PASS" endtime="20170322 10:00:56.756" starttime="20170322 10:00:56.672"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION EMAIL}</arg>
+<arg>${VALID EMAIL}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:56.756" level="INFO">Typing text 'tratta01@gmail.com' into text field 'name=signin-email'</msg>
+<status status="PASS" endtime="20170322 10:00:56.922" starttime="20170322 10:00:56.756"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION PASSWORD}</arg>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:56.926" level="INFO">Typing text 'aA+12345' into text field 'name=signin-password'</msg>
+<status status="PASS" endtime="20170322 10:00:57.054" starttime="20170322 10:00:56.926"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION CAPTCHA}</arg>
+</arguments>
+<msg timestamp="20170322 10:00:57.054" level="INFO">Clicking element 'g-recaptcha-response'.</msg>
+<status status="PASS" endtime="20170322 10:00:57.154" starttime="20170322 10:00:57.054"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SLEEP TIME}</arg>
+</arguments>
+<msg timestamp="20170322 10:01:00.167" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170322 10:01:00.167" starttime="20170322 10:00:57.154"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LOCATION SIGNIN SUBMIT}</arg>
+</arguments>
+<msg timestamp="20170322 10:01:00.167" level="INFO">Clicking button 'name=login-submit'.</msg>
+<status status="PASS" endtime="20170322 10:01:00.438" starttime="20170322 10:01:00.167"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SLEEP TIME}</arg>
+</arguments>
+<msg timestamp="20170322 10:01:03.443" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170322 10:01:03.443" starttime="20170322 10:01:00.442"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2017/group5/index.php/Home</arg>
+</arguments>
+<msg timestamp="20170322 10:01:03.451" level="INFO">Current location is 'http://10.199.66.227/SoftEn2017/group5/index.php/Home'.</msg>
+<status status="PASS" endtime="20170322 10:01:03.451" starttime="20170322 10:01:03.443"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=sign-in-009.png</arg>
+</arguments>
+<msg timestamp="20170322 10:01:03.599" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="sign-in-009.png"&gt;&lt;img src="sign-in-009.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170322 10:01:03.603" starttime="20170322 10:01:03.451"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170322 10:01:05.770" starttime="20170322 10:01:03.603"></status>
+</kw>
+<status status="PASS" endtime="20170322 10:01:05.770" critical="yes" starttime="20170322 10:00:54.856"></status>
+</test>
+<status status="PASS" endtime="20170322 10:01:05.770" starttime="20170322 10:00:39.851"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="9">Critical Tests</stat>
+<stat fail="0" pass="9">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Sign-In" pass="9">Sign-In</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
