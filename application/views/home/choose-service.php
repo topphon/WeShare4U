@@ -44,17 +44,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
       <!-- container -->
       <div style="height: 0 auto;" class="container content">
-        <p style="color:#ec6969; padding-top:8%; font-size:16px;"> ขณะนี้มีจำนวนสิ่งของ <span id="countValues" style="font-size:24px;"></span> ชิ้น ที่บริจาค</p>
-              <ul class="ch-grid">
-                <a name="want-help" href="<?=base_url()?>index.php/WantHelp/index">
-                  <li class="want-help hvr-grow-shadow">
-                  <p style="padding-top:50%; margin: 0 auto;">ต้องการบริจาค</p>
+        <div style="border-radius:25px; border-color: 1px solid #ec6969;">
+          <p style="color:#ec6969; padding-top:8%; font-size:16px;"> ขณะนี้มีจำนวนสิ่งของ <span id="countValues" style="font-size:24px;"></span> ชิ้น ที่บริจาค</p>
+        </div>
+              <div>
+                <ul class="ch-grid">
+                  <a name="want-help" href="<?=base_url()?>index.php/WantHelp/index">
+                    <li class="want-help hvr-bounce-to-bottom-custom-wh">
+                    <p style="padding-top:50%; margin: 0 auto;">ต้องการบริจาค</p>
+                  </li></a>
+                  <a name="please-help" href="<?=base_url()?>index.php/PleaseHelp/index">
+                  <li class="please-help hvr-bounce-to-bottom-custom-ph">
+                  <p style="padding-top:50%; margin: 0 auto;">ขอรับบริจาค</p>
                 </li></a>
-                <a name="please-help" href="<?=base_url()?>index.php/PleaseHelp/index">
-                <li class="please-help hvr-grow-shadow">
-                <p style="padding-top:50%; margin: 0 auto;">ขอรับบริจาค</p>
-              </li></a>
-              </ul>
+                </ul>
+              </div>
               <br>
               <br>
           </div>
@@ -75,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             prefix : '',
             suffix : ''
           };
-          var values = new CountUp("countValues", 0, 4309, 0, 10, options);
+          var values = new CountUp("countValues", 0, 4309, 0, 3, options);
           values.start();
     });
     </script>

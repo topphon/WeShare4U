@@ -1,0 +1,7 @@
+div.container div.row p{
+  font-size: 64px;
+  color:#e4faff;
+  text-shadow: -1px 0 #f2afff, 0 1px #f2afff, 1px 0 #f2afff, 0 -1px #f2afff;
+  margin: 0 auto;
+  padding-top : 20%;
+}

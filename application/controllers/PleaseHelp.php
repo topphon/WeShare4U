@@ -11,6 +11,7 @@ class PleaseHelp extends CI_Controller
 
 	public function index()
 	{
+		$_SESSION['state'] = 'pleasehelp';
 		$this->load->view('assets/pleaseHelpHeader');
 		$this->load->view('pleasehelp/index');
 		$this->load->view('assets/footer');

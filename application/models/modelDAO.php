@@ -19,6 +19,12 @@ class modelDAO extends CI_Model {
 		return $query;
 	}
 
+	public function getProductTypeName()
+	{
+		$query = $this->db->get('ptype');
+		return $query;
+	}
+
 	public function is_email_available($email)
       {
            $this->db->where('email', $email);
@@ -45,10 +51,12 @@ public function getLogin($email,$password)
 										foreach ($query->result() as $row)
 										{
 										$sess_array = $arrayName = array(
+											'uid' => $row->uid,
 											'fname' => $row->fname,
 											'lname' => $row->lname,
 											'email' => $row->email,
 											'activate' => $row->activate,
+											'claim' => $row->claim,
 											'state' => 'choose'
 										);
 									}
@@ -59,5 +67,29 @@ public function getLogin($email,$password)
 								 return null;
 							 }
 						}
+
+
+						public function getImageValidate()
+						{
+							$this->db->order_by('uid', 'DESC');
+							$query = $this->db->get('user');
+							return $query;
+						}
+
+						public function getActivate($uid,$activate)
+					{
+						$this->db->set('activate', $activate);
+						$this->db->where('uid', $uid);
+						$this->db->update('user');
+					}
+
+
+
+					public function getEmailName($uid)
+					{
+						$this->db->where('uid', $uid);
+						$query = $this->db->get('user');
+				    return $query;
+					}
 
 }

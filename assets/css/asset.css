@@ -102,7 +102,7 @@ margin-top:-25%;
 .hvr-underline-custom-left:before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   left: 0;
   right: 100%;
   bottom: 0;
@@ -119,6 +119,131 @@ margin-top:-25%;
   right: 0;
 }
 /* end Underline custom Left */
+
+
+/* Bounce To Bottom */
+.hvr-bounce-to-bottom-custom-wh {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: .6s;
+  transition-duration: .6s;
+  color: #7b9387;
+}
+.hvr-bounce-to-bottom-custom-wh:before {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #7b9387;
+  bottom: 0;
+  background-image: url("img/wantHelp1.png");
+  background-color: #e4fcff;
+  background-size: 100% 90%;
+  background-repeat: no-repeat;
+  width: auto; /*or your image's width*/
+  height: auto; /*or your image's height*/
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: .6s;
+  transition-duration: .6s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-bounce-to-bottom-custom-wh:hover, .hvr-bounce-to-bottom-custom-wh:focus, .hvr-bounce-to-bottom-custom-wh:active {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color: #7b9387;
+  transition-duration: .6s;
+}
+.hvr-bounce-to-bottom-custom-wh:hover:before, .hvr-bounce-to-bottom-custom-wh:focus:before, .hvr-bounce-to-bottom-custom-wh:active:before {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  color: #7b9387;
+}
+
+/* -------------------------------------- */
+
+.hvr-bounce-to-bottom-custom-ph {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: .6s;
+  transition-duration: .6s;
+  color: #665566;
+}
+.hvr-bounce-to-bottom-custom-ph:before {
+  background-image: url("img/pleaseHelp1.png");
+  background-color: #e4fcff;
+  background-size: 100% 90%;
+  background-repeat: no-repeat;
+  width: auto; /*or your image's width*/
+  height: auto; /*or your image's height*/
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #665566;
+  bottom: 0;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: .6s;
+  transition-duration: .6s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-bounce-to-bottom-custom-ph:hover, .hvr-bounce-to-bottom-custom-ph:focus, .hvr-bounce-to-bottom-custom-ph:active {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  color: #665566;
+  transition-duration: 1s;
+}
+.hvr-bounce-to-bottom-custom-ph:hover:before, .hvr-bounce-to-bottom-custom-ph:focus:before, .hvr-bounce-to-bottom-custom-ph:active:before {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  color: #665566;
+}
+
+/*  end Bounce To Bottom */
+
 
 
 /* goButton */
@@ -171,11 +296,61 @@ margin-top:-25%;
   text-align: center;
   padding-top: 2%;
   padding-bottom: 2%;
+  text-decoration: none;
+  color: #57E9F2;
 }
 
 .btn-submit:hover {
+  text-decoration: none;
   margin: 0 auto;
   background-color: #57E9F2;
+  color: #ECF4FF;
+  transition: .3s;
+  width: 90%;
+}
+
+.btn-ok {
+  background: none;
+  border-radius: 25px;
+  border: 2px solid #57E9F2;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-decoration: none;
+  color: #57E9F2;
+}
+
+.btn-ok:hover {
+  text-decoration: none;
+  margin: 0 auto;
+  background-color: #57E9F2;
+  color: #ECF4FF;
+  transition: .3s;
+  width: 70%;
+}
+
+.btn-cancel {
+  background: none;
+  border-radius: 25px;
+  border: 2px solid #ff4b71;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-decoration: none;
+  color: #ff4b71;
+  width: 20%;
+}
+
+.btn-cancel:hover {
+  text-decoration: none;
+  margin: 0 auto;
+  background-color: #ff4b71;
   color: #ECF4FF;
   transition: .3s;
   width: 70%;

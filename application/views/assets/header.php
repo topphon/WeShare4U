@@ -14,6 +14,7 @@
   </header>
   <nav class="menu" style="margin-top: 5%;">
     <ul>
+      <li><a class="hvr-underline-custom-left" href="<?=base_url()?>index.php/home">หน้าเเรก</a></li>
       <li><a class="hvr-underline-custom-left" href="">สถิติการบริจาค</a></li>
       <li><a class="hvr-underline-custom-left" href="">คำถามที่พบบ่อย</a></li>
       <li><a class="hvr-underline-custom-left" href="">เกี่ยวกับเรา</a></li>

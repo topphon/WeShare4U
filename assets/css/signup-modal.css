@@ -130,6 +130,7 @@
 }
 .cd-form input.has-padding {
   padding: 12px;
+
 }
 .cd-form input.has-border {
   border: 1px solid #d2d8d8;
@@ -404,4 +405,8 @@ nav ul li .cd-signin{
   padding-left: 2%;
   top: 10px;
   left: 10px;
+}
+
+label{
+
 }

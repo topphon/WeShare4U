@@ -82,25 +82,27 @@ function welcome() {
       <div style="padding-top:5%;">
         <img class="img-responsive" style="margin: 0 auto; width:25%; text-align: center;" src="<?=base_url()?>/assets/image/weBox.png">
       </div>
-      <form action='<?=base_url()?>index.php/home/checkLogin' method='post' class="cd-form" id="login">
+      <form class="cd-form" id="login">
         <div class="cd-email fieldset">
             <i class="fa fa-envelope-o" aria-hidden="true"></i>
             <input class="full-width has-padding has-border" name="signin-email" id="signin-email"
-            type="email"  placeholder="อีเมล" autofocus>
+            type="email"  placeholder="อีเมล" maxlength="60" autofocus>
+            <div id="checkEmailSignin" style="text-align:right;"></div>
         </div>
         <div class="cd-password fieldset">
             <i class="fa fa-key" aria-hidden="true"></i>
             <input class="full-width has-padding has-border" name="signin-password" id="signin-password"
-            type="password" placeholder="รหัสผ่าน">
+            type="password" maxlength="16" placeholder="รหัสผ่าน">
         </div>
-        <div class="g-recaptcha-response" style="margin:0 auto; padding-left:5%; padding-top:5%;" >
+        <div id="checkLogin" style="text-align:center;"></div>
+        <div class="g-recaptcha-response" style="margin:0 auto; padding-left:5%; padding-top:1%;" >
           <div class="g-recaptcha" id="g-recaptcha-response"  data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
         </div>
-        <div class="forgetpass" style="margin:0 auto; text-align:right;">
+        <div class="forgetpass" style="margin:0 auto; padding-top:6%; text-align:right;">
           <a href="#">ลืมรหัสผ่าน ?</a>
         </div>
         <div class="fieldset">
-          <button type="submit" class="btn-login"  value="submit" name="login-submit">เข้าสู่ระบบ</button>
+          <button class="btn-login signin" id="signin" name="login-submit">เข้าสู่ระบบ</button>
         </div>
       </form>
     </div>
@@ -109,13 +111,77 @@ function welcome() {
     <!-- end login -->
     <script>
     //checkCaptcha Varidate
-    $("#login").submit(function(event) {
+$('#signin').click(function(e){
+  e.preventDefault();
        var recaptcha = $("#g-recaptcha-response").val();
        if (recaptcha === "") {
           event.preventDefault();
           alert("กรุณายืนยันว่าไม่ใช่โปรแกรมอัตโนมัติ");
+          document.getElementById("signin-email").value = "";
+          document.getElementById("signin-password").value = "";
        }
     });
+    </script>
+    <script type='text/javascript'>
+    //check max length
+    CharacterCount = function(TextArea,FieldToCount){
+    	var myField = document.getElementById(TextArea);
+    	var myLabel = document.getElementById(FieldToCount);
+    	if(!myField || !myLabel){return false}; // catches errors
+    	var MaxChars =  myField.maxLengh;
+    	if(!MaxChars){MaxChars =  myField.getAttribute('maxlength') ; }; 	if(!MaxChars){return false};
+    	var remainingChars =   MaxChars - myField.value.length
+    	myLabel.innerHTML = remainingChars
+    }
+
+    setInterval(function(){CharacterCount('address','adr-max-length')},55);
+    </script>
+    <script>
+    //check available signin-email
+    $('#signin-email').blur(function(e){
+             e.preventDefault();
+             var email = $('#signin-email').val();
+             $.ajax({
+               url: '<?= base_url() ?>index.php/Home/signinEmailValidation',
+               data: {
+                 'email': email
+               },
+               type: "post",
+               success: function(data){
+                 if(data == 'true'){
+                   $('#checkEmailSignin').html('');
+                 }else{
+                   $('#checkEmailSignin').html(data);
+                   document.getElementById("signin-email").value = "";
+                 }
+               }
+             });
+          });
+    </script>
+    <script>
+    //check login
+    $('.signin').click(function(e){
+          e.preventDefault();
+             var email = $('#signin-email').val();
+             var password = $('#signin-password').val();
+             $.ajax({
+               url: '<?= base_url() ?>index.php/Home/checkLogin',
+               data: {
+                 'email': email,
+                 'password' : password
+               },
+               type: "post",
+               success: function(data){
+                 if(data == 'true'){
+                   $('#checkLogin').html('');
+                   window.location = "<?= base_url() ?>index.php/Home";
+                 }else{
+                   $('#checkLogin').html(data);
+                   document.getElementById("signin-password").value = "";
+                 }
+               }
+             });
+          });
     </script>
 </body>
 </html>
